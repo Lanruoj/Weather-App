@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { useSearchContext } from "../utils/SearchContext";
+import { countryCodes } from "../utils/countryCodes";
 
 const Form = styled.form`
   /* background-color: red; */
@@ -11,17 +12,8 @@ const Form = styled.form`
 `;
 
 const CityNameSearch = styled.input.attrs({ type: "search" })`
-  height: 2rem;
+  height: 2.5rem;
   width: 10rem;
-  font-size: 1.5rem;
-  text-align: "center";
-  margin: 1rem;
-  font-family: "Roboto Mono", monospace;
-`;
-
-const CountryCodeSearch = styled.input.attrs({ type: "search" })`
-  height: 2rem;
-  width: 3rem;
   font-size: 1.5rem;
   text-align: "center";
   margin: 1rem;
@@ -35,10 +27,10 @@ const SubmitButton = styled.button`
 `;
 
 const Dropdown = styled.select`
-  width: 3rem;
-  height: 2rem;
+  width: 4rem;
+  height: 2.5rem;
   font-family: "Roboto Mono", monospace;
-  font-size: 1rem;
+  font-size: 1.5rem;
 `;
 
 const DaysLabel = styled.label.attrs({ htmlFor: "days" })`
@@ -80,10 +72,11 @@ export const WeatherForm = (props) => {
           onChange={handleCountryCodeChange}
           value={countryCode}
           placeholder="Country code"
+          name="country-code"
+          id="country-code"
         >
-          {[...Array(4).keys()].map((day) => {
-            day++;
-            return <option key={day}>{day}</option>;
+          {countryCodes.map((code) => {
+            return <option key={code}>{code}</option>;
           })}
         </Dropdown>
       </div>

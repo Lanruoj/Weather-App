@@ -1,4 +1,4 @@
-[
+export const countryCodes = [
   "AD",
   "AE",
   "AF",
@@ -247,5 +247,5 @@
   "YT",
   "ZA",
   "ZM",
-  "ZW"
-]
+  "ZW",
+];
