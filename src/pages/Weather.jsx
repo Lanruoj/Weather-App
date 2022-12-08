@@ -34,7 +34,16 @@ export const Weather = () => {
   return (
     <>
       <SearchContext.Provider
-        value={{ cityName, setCityName, results, setResults, days, setDays }}
+        value={{
+          cityName,
+          setCityName,
+          countryCode,
+          setCountryCode,
+          results,
+          setResults,
+          days,
+          setDays,
+        }}
       >
         <WeatherForm />
         <WeatherResults />
