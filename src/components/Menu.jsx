@@ -16,16 +16,16 @@ const MenuContainer = styled.ul`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  font-family: "Roboto", monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 2rem;
 `;
 
 export const Menu = (props) => {
   return (
     <MenuContainer menuVisible={props.menuVisible}>
-      <NavLink to="#">about</NavLink>
+      <NavLink to="/about">about</NavLink>
       <NavLink to="#">weather</NavLink>
-      <NavLink to="#">contact</NavLink>
+      <NavLink to="/contact">contact</NavLink>
     </MenuContainer>
   );
 };

@@ -4,6 +4,7 @@ import { useMenuContext } from "../utils/MenuContext";
 import { Menu } from "./Menu";
 
 const NavContainer = styled.nav`
+  margin: 0;
   position: fixed;
   display: flex;
   justify-content: space-between;
