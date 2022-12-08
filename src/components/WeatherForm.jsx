@@ -16,6 +16,7 @@ const SearchField = styled.input.attrs({ type: "search" })`
   font-size: 1.5rem;
   text-align: "center";
   margin: 1rem;
+  font-family: "Roboto Mono", monospace;
 `;
 
 const SubmitButton = styled.button`
@@ -24,8 +25,16 @@ const SubmitButton = styled.button`
   margin: 1rem;
 `;
 
-const Dropdown = styled.select`
-  color: blue;
+const DaysDropdown = styled.select.attrs({ name: "days", id: "days" })`
+  width: 3rem;
+  height: 2rem;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1rem;
+`;
+
+const DaysLabel = styled.label.attrs({ htmlFor: "days" })`
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.5rem;
 `;
 
 export const WeatherForm = (props) => {
@@ -48,6 +57,15 @@ export const WeatherForm = (props) => {
         value={textValue}
         placeholder="Location"
       />
+      <div>
+        <DaysLabel htmlFor="days">Days </DaysLabel>
+        <DaysDropdown>
+          {[...Array(4).keys()].map((day) => {
+            day++;
+            return <option key={day}>{day}</option>;
+          })}
+        </DaysDropdown>
+      </div>
       <SubmitButton>Go</SubmitButton>
     </Form>
   );
