@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useSearchContext } from "../utils/SearchContext";
 
 const Form = styled.form`
   background-color: red;
@@ -23,7 +24,7 @@ const SubmitButton = styled.button`
 `;
 
 export const WeatherForm = () => {
-  const [textValue, setTextValue] = useState("");
+  const { textValue, setTextValue } = useSearchContext();
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(textValue);
