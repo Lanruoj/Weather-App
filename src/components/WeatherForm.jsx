@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Form = styled.form`
@@ -12,6 +12,8 @@ const Form = styled.form`
 const SearchField = styled.input.attrs({ type: "search" })`
   height: 2rem;
   width: 10rem;
+  font-size: 1.5rem;
+  text-align: "center";
 `;
 
 const SubmitButton = styled.button`
@@ -22,24 +24,23 @@ const SubmitButton = styled.button`
 
 export const WeatherForm = () => {
   const [textValue, setTextValue] = useState("");
-
-  useEffect(() => {
-    setTextValue("Location");
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(textValue);
+    // console.log(textValue);
+    setTextValue("");
   };
 
   const handleChange = (e) => {
     setTextValue(e.target.value);
-    // console.log(textValue);
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <SearchField onChange={handleChange} value={textValue} />
+      <SearchField
+        onChange={handleChange}
+        value={textValue}
+        placeholder="Location"
+      />
       <SubmitButton>Go</SubmitButton>
     </Form>
   );
