@@ -35,6 +35,7 @@ export const NavBar = () => {
 
   const toggleMenu = () => {
     menuVisible ? setMenuVisible(false) : setMenuVisible(true);
+    // console.log(menuVisible);
   };
 
   return (
@@ -43,7 +44,7 @@ export const NavBar = () => {
         <MenuButton onClick={toggleMenu}>&#62;</MenuButton>
         <NavTitle>weathercycle</NavTitle>
       </NavContainer>
-      <Menu />
+      <Menu menuVisible={menuVisible} />
     </>
   );
 };

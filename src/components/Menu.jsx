@@ -9,7 +9,8 @@ const MenuContainer = styled.ul`
   width: 50vw;
   height: 100vh;
   margin-top: 4rem;
-  background-color: red;
+  left: ${(props) => (props.menuVisible ? "0px" : "-50vw")};
+  transition: 0.2s;
 `;
 
 const NavLink = styled(Link)`
@@ -17,9 +18,9 @@ const NavLink = styled(Link)`
   display: block;
 `;
 
-export const Menu = () => {
+export const Menu = (props) => {
   return (
-    <MenuContainer>
+    <MenuContainer menuVisible={props.menuVisible}>
       <NavLink to="#">About</NavLink>
       <NavLink to="#">Weather</NavLink>
       <NavLink to="#">Contact</NavLink>
