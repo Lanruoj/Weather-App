@@ -4,26 +4,28 @@ import { Link } from "react-router-dom";
 const MenuContainer = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   position: fixed;
   width: 50vw;
-  height: 100vh;
+  height: 50vh;
   margin-top: 4rem;
   left: ${(props) => (props.menuVisible ? "0px" : "-50vw")};
-  transition: 0.2s;
+  transition: 0.3s;
 `;
 
 const NavLink = styled(Link)`
-  color: blue;
-  display: block;
+  text-decoration: none;
+  font-family: "Roboto", monospace;
+  font-size: 2rem;
 `;
 
 export const Menu = (props) => {
   return (
     <MenuContainer menuVisible={props.menuVisible}>
-      <NavLink to="#">About</NavLink>
-      <NavLink to="#">Weather</NavLink>
-      <NavLink to="#">Contact</NavLink>
+      <NavLink to="#">about</NavLink>
+      <NavLink to="#">weather</NavLink>
+      <NavLink to="#">contact</NavLink>
     </MenuContainer>
   );
 };
