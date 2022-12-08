@@ -13,7 +13,7 @@ const Form = styled.form`
 
 const CityNameSearch = styled.input.attrs({ type: "search" })`
   height: 2.5rem;
-  width: 10rem;
+  width: 12rem;
   font-size: 1.5rem;
   text-align: "center";
   margin: 1rem;
@@ -27,7 +27,7 @@ const SubmitButton = styled.button`
 `;
 
 const Dropdown = styled.select`
-  width: 4rem;
+  width: 5rem;
   height: 2.5rem;
   font-family: "Roboto Mono", monospace;
   font-size: 1.5rem;
@@ -44,8 +44,10 @@ export const WeatherForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(cityName);
+    console.log(countryCode);
     setCityName("");
-    props.getWeather();
+    // props.getWeather();
   };
 
   const handleChange = (e) => {
@@ -71,7 +73,6 @@ export const WeatherForm = (props) => {
         <Dropdown
           onChange={handleCountryCodeChange}
           value={countryCode}
-          placeholder="Country code"
           name="country-code"
           id="country-code"
         >
