@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Form = styled.form`
@@ -23,9 +23,13 @@ const SubmitButton = styled.button`
 export const WeatherForm = () => {
   const [textValue, setTextValue] = useState("");
 
+  useEffect(() => {
+    setTextValue("Location");
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("onSubmit");
+    console.log(textValue);
   };
 
   const handleChange = (e) => {
@@ -35,7 +39,7 @@ export const WeatherForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <SearchField onChange={handleChange} />
+      <SearchField onChange={handleChange} value={textValue} />
       <SubmitButton>Go</SubmitButton>
     </Form>
   );
