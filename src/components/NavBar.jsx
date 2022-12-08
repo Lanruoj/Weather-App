@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { Menu } from "./Menu";
 
 const NavContainer = styled.nav`
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,9 +30,12 @@ const NavTitle = styled.h1`
 
 export const NavBar = () => {
   return (
-    <NavContainer>
-      <MenuButton>&#62;</MenuButton>
-      <NavTitle>weathercycle</NavTitle>
-    </NavContainer>
+    <>
+      <NavContainer>
+        <MenuButton>&#62;</MenuButton>
+        <NavTitle>weathercycle</NavTitle>
+      </NavContainer>
+      <Menu />
+    </>
   );
 };
