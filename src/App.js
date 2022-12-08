@@ -3,6 +3,7 @@ import { MenuContext } from "./utils/MenuContext";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Main } from "./components/Main";
+import { About } from "./pages/About";
 
 function App() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -10,10 +11,12 @@ function App() {
   return (
     <MenuContext.Provider value={{ menuVisible, setMenuVisible }}>
       <NavBar />
-      <Routes>
-        <Route path="/about" element={<Main pageHeader="About" />} />
-        <Route path="/contact" element={<Main pageHeader="Contact" />} />
-      </Routes>
+      <Main position={menuVisible}>
+        <Routes>
+          <Route path="/about" element={<About />} />
+          {/* <Route path="/contact" element={<Contact pageHeader="Contact" />} /> */}
+        </Routes>
+      </Main>
     </MenuContext.Provider>
   );
 }

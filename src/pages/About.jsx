@@ -1,11 +1,13 @@
-// import { Main } from "../components/Main";
-// import { useMenuContext } from "../utils/MenuContext";
-
-// export const Main = (props) => {
-//   const { menuVisible } = useMenuContext();
-//   return (
-//     <Main menuVisible={menuVisible ? true : false}>
-//       <h2>{props.pageHeader}</h2>
-//     </Main>
-//   );
-// };
+export const About = () => {
+  return (
+    <>
+      <h2>About</h2>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique,
+        deserunt. Sit illo eos recusandae blanditiis! Excepturi vitae optio,
+        expedita laboriosam nulla qui adipisci labore aspernatur aliquid fuga
+        facilis, minima iure.
+      </div>
+    </>
+  );
+};
