@@ -23,12 +23,13 @@ const SubmitButton = styled.button`
   width: 4rem;
 `;
 
-export const WeatherForm = () => {
+export const WeatherForm = (props) => {
   const { textValue, setTextValue } = useSearchContext();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(textValue);
     setTextValue("");
+    props.getWeather();
   };
 
   const handleChange = (e) => {

@@ -18,17 +18,15 @@ export const Weather = () => {
           longitude: position.coords.longitude,
         })
       );
-      console.log(location);
     } else {
       console.log("Not Available");
     }
   }, []);
 
   const getWeather = () => {
-    const weather = fetchData(
-      `api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=835b67cd49ef047cb536ae1d6ce24537`
+    return fetchData(
+      `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=835b67cd49ef047cb536ae1d6ce24537`
     );
-    console.log(weather);
   };
 
   return (
@@ -36,7 +34,7 @@ export const Weather = () => {
       <SearchContext.Provider
         value={{ textValue, setTextValue, results, setResults }}
       >
-        <WeatherForm />
+        <WeatherForm getWeather={getWeather} />
         <WeatherResults />
       </SearchContext.Provider>
     </>
