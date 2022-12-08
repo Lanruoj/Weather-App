@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Main } from "./components/Main";
 import { About } from "./pages/About";
+import { Weather } from "./pages/Weather";
 
 function App() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -13,7 +14,7 @@ function App() {
       <Main position={menuVisible}>
         <Routes>
           <Route path="/about" element={<About />} />
-          {/* <Route path="/contact" element={<Contact pageHeader="Contact" />} /> */}
+          <Route path="/weather" element={<Weather pageHeader="Contact" />} />
         </Routes>
       </Main>
     </MenuContext.Provider>

@@ -24,7 +24,7 @@ export const Menu = (props) => {
   return (
     <MenuContainer menuVisible={props.menuVisible}>
       <NavLink to="/about">about</NavLink>
-      <NavLink to="#">weather</NavLink>
+      <NavLink to="/weather">weather</NavLink>
       <NavLink to="/contact">contact</NavLink>
     </MenuContainer>
   );
