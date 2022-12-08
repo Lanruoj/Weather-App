@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { About } from "../pages/About";
 import { WeatherForm } from "./WeatherForm";
 import { useMenuContext } from "../utils/MenuContext";
+import { usePageContext } from "../utils/PageContext";
 
 export const MainContainer = styled.main`
   position: absolute;
@@ -13,9 +14,10 @@ export const MainContainer = styled.main`
 
 export const Main = () => {
   const { menuVisible } = useMenuContext();
+  const { currentPage } = usePageContext();
   return (
     <MainContainer position={menuVisible}>
-      <h2>Title</h2>
+      <h2>{currentPage}</h2>
       <Routes>
         <Route path="/weather" element={<WeatherForm />} />
         <Route path="/about" element={<About />} />
