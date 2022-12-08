@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useMenuContext } from "../utils/MenuContext";
 import { Menu } from "./Menu";
 
 const NavContainer = styled.nav`
@@ -30,11 +31,16 @@ const NavTitle = styled.h1`
 `;
 
 export const NavBar = () => {
-  const [menuVisible, setMenuVisible] = useState(false);
+  const { menuVisible, setMenuVisible } = useMenuContext();
+
+  const toggleMenu = () => {
+    menuVisible ? setMenuVisible(false) : setMenuVisible(true);
+  };
+
   return (
     <>
       <NavContainer>
-        <MenuButton>&#62;</MenuButton>
+        <MenuButton onClick={toggleMenu}>&#62;</MenuButton>
         <NavTitle>weathercycle</NavTitle>
       </NavContainer>
       <Menu />
