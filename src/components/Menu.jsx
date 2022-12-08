@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { usePageContext } from "../utils/PageContext";
 
 const MenuContainer = styled.ul`
   display: flex;
@@ -21,11 +22,22 @@ const NavLink = styled(Link)`
 `;
 
 export const Menu = (props) => {
+  const { setCurrentPage } = usePageContext();
+  const handleClick = (e) => {
+    setCurrentPage(e.target.name);
+  };
+
   return (
     <MenuContainer menuVisible={props.menuVisible}>
-      <NavLink to="/about">about</NavLink>
-      <NavLink to="/weather">weather</NavLink>
-      <NavLink to="/contact">contact</NavLink>
+      <NavLink to="/about" onClick={handleClick} name="About">
+        about
+      </NavLink>
+      <NavLink to="/weather" onClick={handleClick} name="Weather">
+        weather
+      </NavLink>
+      <NavLink to="/contact" onClick={handleClick} name="Contact">
+        contact
+      </NavLink>
     </MenuContainer>
   );
 };
