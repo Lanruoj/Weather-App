@@ -7,7 +7,6 @@ import { About } from "./pages/About";
 
 function App() {
   const [menuVisible, setMenuVisible] = useState(false);
-  // const [currentPage, setCurrentPage] = useState("home");
   return (
     <MenuContext.Provider value={{ menuVisible, setMenuVisible }}>
       <NavBar />

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { useMenuContext } from "../utils/MenuContext";
 import { Menu } from "./Menu";
@@ -36,7 +35,6 @@ export const NavBar = () => {
 
   const toggleMenu = () => {
     menuVisible ? setMenuVisible(false) : setMenuVisible(true);
-    // console.log(menuVisible);
   };
 
   return (
