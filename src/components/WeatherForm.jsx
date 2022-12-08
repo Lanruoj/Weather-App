@@ -38,7 +38,7 @@ const DaysLabel = styled.label.attrs({ htmlFor: "days" })`
 `;
 
 export const WeatherForm = (props) => {
-  const { textValue, setTextValue } = useSearchContext();
+  const { textValue, setTextValue, days, setDays } = useSearchContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,6 +50,10 @@ export const WeatherForm = (props) => {
     setTextValue(e.target.value);
   };
 
+  const handleDaysChange = (e) => {
+    setDays(e.target.value);
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <SearchField
@@ -59,7 +63,7 @@ export const WeatherForm = (props) => {
       />
       <div>
         <DaysLabel htmlFor="days">Days </DaysLabel>
-        <DaysDropdown>
+        <DaysDropdown onChange={handleDaysChange} value={days}>
           {[...Array(4).keys()].map((day) => {
             day++;
             return <option key={day}>{day}</option>;

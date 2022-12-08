@@ -9,6 +9,7 @@ export const Weather = () => {
   const [textValue, setTextValue] = useState("");
   const [results, setResults] = useState(["one", "two", "three"]);
   const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [days, setDays] = useState(1);
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -32,7 +33,7 @@ export const Weather = () => {
   return (
     <>
       <SearchContext.Provider
-        value={{ textValue, setTextValue, results, setResults }}
+        value={{ textValue, setTextValue, results, setResults, days, setDays }}
       >
         <WeatherForm getWeather={getWeather} />
         <WeatherResults />
