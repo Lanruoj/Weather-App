@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { Menu } from "./Menu";
 
@@ -29,6 +30,7 @@ const NavTitle = styled.h1`
 `;
 
 export const NavBar = () => {
+  const [menuVisible, setMenuVisible] = useState(false);
   return (
     <>
       <NavContainer>
