@@ -64,6 +64,10 @@ export const WeatherForm = (props) => {
     setDays(e.target.value);
   };
 
+  const handleCountryCodeChange = (e) => {
+    setCountryCode(e.target.value);
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <div>
@@ -72,11 +76,16 @@ export const WeatherForm = (props) => {
           value={cityName}
           placeholder="City"
         />
-        <CountryCodeSearch
-          onChange={handleChange}
+        <Dropdown
+          onChange={handleCountryCodeChange}
           value={countryCode}
           placeholder="Country code"
-        />
+        >
+          {[...Array(4).keys()].map((day) => {
+            day++;
+            return <option key={day}>{day}</option>;
+          })}
+        </Dropdown>
       </div>
       <div>
         <DaysLabel htmlFor="days">Days </DaysLabel>
