@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Route, Routes } from "react-router-dom";
 import { About } from "../pages/About";
-import { WeatherForm } from "./WeatherForm";
+import { Weather } from "../pages/Weather";
 import { useMenuContext } from "../utils/MenuContext";
 import { usePageContext } from "../utils/PageContext";
 
@@ -24,7 +24,7 @@ export const Main = () => {
     <MainContainer position={menuVisible}>
       <h2>{currentPage}</h2>
       <Routes>
-        <Route path="/weather" element={<WeatherForm />} />
+        <Route path="/weather" element={<Weather />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </MainContainer>
