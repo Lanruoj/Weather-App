@@ -6,7 +6,12 @@ import { useMenuContext } from "../utils/MenuContext";
 import { usePageContext } from "../utils/PageContext";
 
 export const MainContainer = styled.main`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
+  width: 100vw;
   margin-top: 4rem;
   left: ${(props) => (props.position ? "50vw" : "0px")};
   transition: 0.3s;
