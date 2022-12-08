@@ -38,16 +38,16 @@ const DaysLabel = styled.label.attrs({ htmlFor: "days" })`
 `;
 
 export const WeatherForm = (props) => {
-  const { textValue, setTextValue, days, setDays } = useSearchContext();
+  const { cityName, setCityName, days, setDays } = useSearchContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTextValue("");
+    setCityName("");
     props.getWeather();
   };
 
   const handleChange = (e) => {
-    setTextValue(e.target.value);
+    setCityName(e.target.value);
   };
 
   const handleDaysChange = (e) => {
@@ -58,7 +58,7 @@ export const WeatherForm = (props) => {
     <Form onSubmit={handleSubmit}>
       <SearchField
         onChange={handleChange}
-        value={textValue}
+        value={cityName}
         placeholder="Location"
       />
       <div>
