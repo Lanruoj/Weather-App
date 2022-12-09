@@ -4,9 +4,17 @@ import { useSearchContext } from "../utils/SearchContext";
 export const WeatherResults = () => {
   const { results } = useSearchContext();
 
+  const getDayNumber = (datetime) => {
+    const date = new Date(datetime).getDay();
+    return date;
+  };
+
   useEffect(() => {
     if (results) {
       console.log(results);
+      // const datetime = results[0]["dt_txt"];
+      // const date = getDayNumber(results[0]["dt_txt"]);
+      // console.log(date);
     }
   }, [results]);
 
