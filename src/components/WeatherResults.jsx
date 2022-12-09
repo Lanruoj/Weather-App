@@ -1,19 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSearchContext } from "../utils/SearchContext";
 
 export const WeatherResults = () => {
-  const { results, setResults, location, fetchWeatherData } =
-    useSearchContext();
+  const { location, fetchWeatherData } = useSearchContext();
+  const [results, setResults] = useState(null);
 
   useEffect(() => {
-    getWeather();
-    console.log(results);
-  }, [results]);
+    if (location.latitude) {
+      getWeather()
+        .then((data) => setResults(data))
+        .then(console.log("results:", results));
+    }
+  }, [location]);
 
   const getWeather = () => {
-    if (results) {
-      fetchWeatherData().then((data) => setResults(data));
-    }
+    return fetchWeatherData();
+    // .then(console.log("results:", results));
   };
 
   return (

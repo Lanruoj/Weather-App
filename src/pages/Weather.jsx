@@ -14,7 +14,7 @@ export const Weather = () => {
     longitude: null,
     city: "",
   });
-  const [results, setResults] = useState(null);
+  // const [results, setResults] = useState(null);
 
   // useEffect(() => {
   //   fetchLocation()
@@ -25,6 +25,7 @@ export const Weather = () => {
     return fetch(
       `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=835b67cd49ef047cb536ae1d6ce24537`
     ).then((response) => response.json());
+    // .then((data) => console.log(data));
   };
 
   return (
@@ -37,8 +38,8 @@ export const Weather = () => {
           setCountryCode,
           location,
           setLocation,
-          results,
-          setResults,
+          // results,
+          // setResults,
           days,
           setDays,
           fetchWeatherData,
