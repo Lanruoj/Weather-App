@@ -2,8 +2,6 @@ import { WeatherForm } from "../components/WeatherForm";
 import { WeatherResults } from "../components/WeatherResults";
 import { useState } from "react";
 import { SearchContext } from "../utils/SearchContext";
-import { fetchData } from "../utils/fetchData";
-import { useEffect } from "react";
 
 export const Weather = () => {
   const [cityName, setCityName] = useState("");
@@ -14,18 +12,18 @@ export const Weather = () => {
     longitude: null,
     city: "",
   });
-  // const [results, setResults] = useState(null);
-
-  // useEffect(() => {
-  //   fetchLocation()
-  // }, [])
+  const [results, setResults] = useState(null);
 
   const fetchWeatherData = () => {
-    // console.log(location.latitude, location.longitude);
     return fetch(
       `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=835b67cd49ef047cb536ae1d6ce24537`
     ).then((response) => response.json());
-    // .then((data) => console.log(data));
+  };
+
+  const fetchLocation = () => {
+    return fetch(
+      `http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${countryCode}&appid=835b67cd49ef047cb536ae1d6ce24537`
+    ).then((response) => response.json());
   };
 
   return (
@@ -38,11 +36,13 @@ export const Weather = () => {
           setCountryCode,
           location,
           setLocation,
-          // results,
-          // setResults,
+          results,
+          setResults,
+          results,
           days,
           setDays,
           fetchWeatherData,
+          fetchLocation,
         }}
       >
         <WeatherForm />

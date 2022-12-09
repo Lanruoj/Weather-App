@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSearchContext } from "../utils/SearchContext";
 import { countryCodes } from "../utils/countryCodes";
-// import { fetchData } from "../utils/fetchData";
 
 const Form = styled.form`
   /* background-color: red; */
@@ -39,7 +37,7 @@ const DaysLabel = styled.label.attrs({ htmlFor: "days" })`
   font-size: 1.5rem;
 `;
 
-export const WeatherForm = (props) => {
+export const WeatherForm = () => {
   const {
     cityName,
     setCityName,
@@ -47,13 +45,10 @@ export const WeatherForm = (props) => {
     setCountryCode,
     days,
     setDays,
-    location,
     setLocation,
+    setResults,
+    fetchLocation,
   } = useSearchContext();
-
-  // useEffect(() => {
-  //   console.log(location);
-  // }, [location]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,6 +58,9 @@ export const WeatherForm = (props) => {
         longitude: data[0].lon,
         city: cityName,
       });
+    });
+    fetchLocation().then((data) => {
+      setResults(data);
     });
     setCityName("");
     setCountryCode("");
@@ -78,12 +76,6 @@ export const WeatherForm = (props) => {
 
   const handleCountryCodeChange = (e) => {
     setCountryCode(e.target.value);
-  };
-
-  const fetchLocation = () => {
-    return fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${countryCode}&appid=835b67cd49ef047cb536ae1d6ce24537`
-    ).then((response) => response.json());
   };
 
   return (
