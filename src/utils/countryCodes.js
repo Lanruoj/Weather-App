@@ -1,4 +1,5 @@
 export const countryCodes = [
+  "",
   "AD",
   "AE",
   "AF",

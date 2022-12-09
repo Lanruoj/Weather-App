@@ -10,7 +10,7 @@ export const Weather = () => {
   const [countryCode, setCountryCode] = useState("");
   const [days, setDays] = useState(1);
   const [results, setResults] = useState(["one", "two", "three"]);
-  // const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [location, setLocation] = useState({ latitude: null, longitude: null });
 
   // useEffect(() => {
   //   if ("geolocation" in navigator) {
@@ -31,6 +31,10 @@ export const Weather = () => {
   //   );
   // };
 
+  // useEffect(() => {
+  //   fetchLocation()
+  // }, [])
+
   return (
     <>
       <SearchContext.Provider
@@ -39,6 +43,8 @@ export const Weather = () => {
           setCityName,
           countryCode,
           setCountryCode,
+          location,
+          setLocation,
           results,
           setResults,
           days,
