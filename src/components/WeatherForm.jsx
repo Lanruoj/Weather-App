@@ -52,12 +52,12 @@ export const WeatherForm = (props) => {
   } = useSearchContext();
 
   useEffect(() => {
-    if (location.latitude) console.log(location);
+    console.log(location);
   }, [location]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchLocation(cityName, countryCode).then((data) => {
+    fetchLocation().then((data) => {
       setLocation({
         latitude: data[0].lat,
         longitude: data[0].lon,
@@ -68,7 +68,7 @@ export const WeatherForm = (props) => {
     setCountryCode("");
   };
 
-  const handleChange = (e) => {
+  const handleCityNameChange = (e) => {
     setCityName(e.target.value);
   };
 
@@ -80,9 +80,9 @@ export const WeatherForm = (props) => {
     setCountryCode(e.target.value);
   };
 
-  const fetchLocation = (city, country) => {
+  const fetchLocation = () => {
     return fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&appid=835b67cd49ef047cb536ae1d6ce24537`
+      `http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${countryCode}&appid=835b67cd49ef047cb536ae1d6ce24537`
     ).then((response) => response.json());
   };
 
@@ -90,7 +90,7 @@ export const WeatherForm = (props) => {
     <Form onSubmit={handleSubmit}>
       <div>
         <CityNameSearch
-          onChange={handleChange}
+          onChange={handleCityNameChange}
           value={cityName}
           placeholder="City"
         />

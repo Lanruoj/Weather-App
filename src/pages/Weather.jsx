@@ -9,35 +9,23 @@ export const Weather = () => {
   const [cityName, setCityName] = useState("");
   const [countryCode, setCountryCode] = useState("");
   const [days, setDays] = useState(1);
-  const [results, setResults] = useState(["one", "two", "three"]);
   const [location, setLocation] = useState({
     latitude: null,
     longitude: null,
     city: "",
   });
-
-  // useEffect(() => {
-  //   if ("geolocation" in navigator) {
-  //     navigator.geolocation.getCurrentPosition((position) =>
-  //       setLocation({
-  //         latitude: position.coords.latitude,
-  //         longitude: position.coords.longitude,
-  //       })
-  //     );
-  //   } else {
-  //     console.log("Not Available");
-  //   }
-  // }, []);
-
-  // const getWeather = () => {
-  //   return fetchData(
-  //     `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=835b67cd49ef047cb536ae1d6ce24537`
-  //   );
-  // };
+  const [results, setResults] = useState(null);
 
   // useEffect(() => {
   //   fetchLocation()
   // }, [])
+
+  const fetchWeatherData = () => {
+    // console.log(location.latitude, location.longitude);
+    return fetch(
+      `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=835b67cd49ef047cb536ae1d6ce24537`
+    ).then((response) => response.json());
+  };
 
   return (
     <>
@@ -53,6 +41,7 @@ export const Weather = () => {
           setResults,
           days,
           setDays,
+          fetchWeatherData,
         }}
       >
         <WeatherForm />
