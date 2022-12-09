@@ -46,21 +46,18 @@ export const WeatherForm = () => {
     days,
     setDays,
     setLocation,
-    setResults,
     fetchLocation,
   } = useSearchContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchLocation().then((data) => {
+      // console.log(data[0].lat, data[0].lon);
       setLocation({
         latitude: data[0].lat,
         longitude: data[0].lon,
         city: cityName,
       });
-    });
-    fetchLocation().then((data) => {
-      setResults(data);
     });
     setCityName("");
     setCountryCode("");

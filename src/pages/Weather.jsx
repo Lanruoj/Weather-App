@@ -1,6 +1,6 @@
 import { WeatherForm } from "../components/WeatherForm";
 import { WeatherResults } from "../components/WeatherResults";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SearchContext } from "../utils/SearchContext";
 
 export const Weather = () => {
@@ -13,6 +13,13 @@ export const Weather = () => {
     city: "",
   });
   const [results, setResults] = useState(null);
+
+  useEffect(() => {
+    if (location.latitude)
+      fetchWeatherData().then((data) => {
+        setResults(data);
+      });
+  }, [location]);
 
   const fetchWeatherData = () => {
     return fetch(
