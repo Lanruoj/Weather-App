@@ -13,6 +13,10 @@ export const WeatherResults = () => {
   return (
     <>
       <h3>Results</h3>
+      {results &&
+        results.map((timeBlock, index) => {
+          return <li key={index}>{timeBlock.main.temp}</li>;
+        })}
     </>
   );
 };
