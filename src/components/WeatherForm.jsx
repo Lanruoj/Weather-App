@@ -51,9 +51,9 @@ export const WeatherForm = (props) => {
     setLocation,
   } = useSearchContext();
 
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
+  // useEffect(() => {
+  //   console.log(location);
+  // }, [location]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

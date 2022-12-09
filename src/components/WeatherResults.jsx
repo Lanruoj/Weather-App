@@ -7,9 +7,8 @@ export const WeatherResults = () => {
 
   useEffect(() => {
     if (location.latitude) {
-      getWeather()
-        .then((data) => setResults(data))
-        .then(console.log("results:", results));
+      getWeather().then((data) => setResults(data));
+      // .then(console.log("results:", results));
     }
   }, [location]);
 
@@ -24,7 +23,7 @@ export const WeatherResults = () => {
       {/* {results.map((result, key) => {
         return <li key={key}>{result}</li>;
       })} */}
-      {/* {results} */}
+      {results && <p>{results.cod}</p>}
     </>
   );
 };
