@@ -17,7 +17,10 @@ export const Weather = () => {
   useEffect(() => {
     if (location.latitude)
       fetchWeatherData().then((data) => {
-        setResults(data);
+        const resultBlocks = data.list.map((block) => {
+          return block;
+        });
+        setResults(resultBlocks);
       });
   }, [location]);
 

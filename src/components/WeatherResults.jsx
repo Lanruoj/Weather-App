@@ -5,7 +5,9 @@ export const WeatherResults = () => {
   const { results } = useSearchContext();
 
   useEffect(() => {
-    if (results) console.log(results);
+    if (results) {
+      console.log(results);
+    }
   }, [results]);
 
   return (
