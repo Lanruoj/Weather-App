@@ -7,6 +7,7 @@ export const WeatherResults = () => {
 
   const getDayNumber = (datetime) => {
     const date = new Date(datetime).getDay();
+    // console.log(date);
     return date;
   };
 
@@ -34,11 +35,19 @@ export const WeatherResults = () => {
     return sortedByMs;
   };
 
+  const filterHighestTemps = (timeBlocks) => {
+    // console.log(Object.keys(timeBlocks));
+    // // const highestTemp = Math.max(...Object.keys(timeBlocks));
+    // // console.log(highestTemp);
+  };
+
   useEffect(() => {
     if (results) {
       // console.log(results);
-      const resultsGroupedByDays = groupResultsByDay(results);
-      console.log(resultsGroupedByDays);
+      // const resultsGroupedByDays = groupResultsByDay(results);
+      // console.log(resultsGroupedByDays);
+      const groupedDays = groupResultsByDay(results);
+      filterHighestTemps(groupedDays);
       // const datetime = results[0]["dt_txt"];
       // const date = getDayNumber(results[0]["dt_txt"]);
       // console.log(date);
