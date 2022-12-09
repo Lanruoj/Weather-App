@@ -10,7 +10,11 @@ export const Weather = () => {
   const [countryCode, setCountryCode] = useState("");
   const [days, setDays] = useState(1);
   const [results, setResults] = useState(["one", "two", "three"]);
-  const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [location, setLocation] = useState({
+    latitude: null,
+    longitude: null,
+    city: "",
+  });
 
   // useEffect(() => {
   //   if ("geolocation" in navigator) {

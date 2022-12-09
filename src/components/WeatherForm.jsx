@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSearchContext } from "../utils/SearchContext";
 import { countryCodes } from "../utils/countryCodes";
-import { fetchData } from "../utils/fetchData";
+// import { fetchData } from "../utils/fetchData";
 
 const Form = styled.form`
   /* background-color: red; */
@@ -51,17 +51,21 @@ export const WeatherForm = (props) => {
     setLocation,
   } = useSearchContext();
 
+  useEffect(() => {
+    if (location.latitude) console.log(location);
+  }, [location]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(cityName);
-    console.log(countryCode);
     fetchLocation(cityName, countryCode).then((data) => {
-      console.log(data[0]);
-      console.log(data[0].lat);
+      setLocation({
+        latitude: data[0].lat,
+        longitude: data[0].lon,
+        city: cityName,
+      });
     });
     setCityName("");
     setCountryCode("");
-    // props.getWeather();
   };
 
   const handleChange = (e) => {
@@ -80,7 +84,6 @@ export const WeatherForm = (props) => {
     return fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&appid=835b67cd49ef047cb536ae1d6ce24537`
     ).then((response) => response.json());
-    // .then((json) => console.log(json));
   };
 
   return (
