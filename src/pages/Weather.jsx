@@ -23,7 +23,7 @@ export const Weather = () => {
 
   const fetchWeatherData = () => {
     return fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=835b67cd49ef047cb536ae1d6ce24537`
+      `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=835b67cd49ef047cb536ae1d6ce24537`
     ).then((response) => response.json());
   };
 
